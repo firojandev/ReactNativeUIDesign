@@ -10,7 +10,7 @@ const ProfileStackScreen = ({ navigation }) => {
     return (
         <ProfileStack.Navigator screenOptions={{
             headerStyle: {
-                backgroundColor: '#009387',
+                backgroundColor: '#d02860',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -20,7 +20,7 @@ const ProfileStackScreen = ({ navigation }) => {
             <ProfileStack.Screen name="Profile" component={Profile} options={{
                 title: 'Profile',
                 headerLeft: () => (
-                    <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={
+                    <Icon.Button name="ios-menu" size={25} backgroundColor="#d02860" onPress={
                         () => {
                             navigation.openDrawer();
                         }

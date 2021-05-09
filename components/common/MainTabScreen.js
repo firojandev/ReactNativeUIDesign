@@ -16,14 +16,14 @@ function MainTabScreen() {
 
         <Tab.Navigator
             initialRouteName="Home"
-            activeColor="#e91e63"
-            barStyle={{ backgroundColor: 'tomato' }}
+            activeColor="#fff"
         >
             <Tab.Screen
                 name="Home"
                 component={HomeStackScreen}
                 options={{
                     tabBarLabel: 'Home',
+                    tabBarColor:'#009387',
                     tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="home" color={color} size={26} />
                     ),
@@ -34,6 +34,7 @@ function MainTabScreen() {
                 component={NotificationStackScreen}
                 options={{
                     tabBarLabel: 'Notifications',
+                    tabBarColor:'#694fad',
                     tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="bell" color={color} size={26} />
                     ),
@@ -45,6 +46,7 @@ function MainTabScreen() {
                 component={ProfileStackScreen}
                 options={{
                     tabBarLabel: 'Profile',
+                    tabBarColor:'#d02860',
                     tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="account" color={color} size={26} />
                     ),
