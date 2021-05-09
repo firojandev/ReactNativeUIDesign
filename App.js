@@ -52,7 +52,16 @@ const NotificationStackScreen = ({ navigation }) => {
       }
     }} >
       <NotificationStack.Screen name="Notifications" component={Notifications} options={{
-        title: 'Notifications'
+        title: 'Notifications',
+        headerLeft: () => (
+          <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={
+            () => {
+              navigation.openDrawer();
+            }
+          } >
+
+          </Icon.Button>
+        )
       }} />
 
     </NotificationStack.Navigator>
