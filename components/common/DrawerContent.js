@@ -73,7 +73,7 @@ function DrawerContent(props) {
                                 />
                             )}
                             label="Settings"
-                            onPress={() => {props.navigation.navigate('Profile')}}
+                            onPress={() => {props.navigation.navigate('SettingScreen')}}
                         />
                         
                     </Drawer.Section>
