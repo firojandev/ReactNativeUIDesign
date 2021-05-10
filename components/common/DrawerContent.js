@@ -77,6 +77,15 @@ function DrawerContent(props) {
                         />
                         
                     </Drawer.Section>
+                    <Drawer.Section title="Others">
+                        <TouchableRipple onPress={() => {}}>
+                            <View style={styles.preference}>
+                                <Text>Link 1</Text>
+                                <Text>Link 2</Text>
+                                <Text>Link 3</Text>
+                            </View>
+                        </TouchableRipple>
+                    </Drawer.Section>
 
 
                 </View>
@@ -155,7 +164,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 1
     },
     preference: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'space-between',
         paddingVertical: 12,
         paddingHorizontal: 16,
