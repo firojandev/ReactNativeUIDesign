@@ -10,6 +10,8 @@ import { ActivityIndicator, View, StyleSheet } from 'react-native';
 
 import { AuthContext } from './components/context';
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 const Drawer = createDrawerNavigator();
 
 
@@ -63,38 +65,56 @@ const App = () => {
 
   };
 
-  const [loginState, dispatch] = React.useReducer(loginReducer,initalLoginState);
+  const [loginState, dispatch] = React.useReducer(loginReducer, initalLoginState);
 
   const authContext = React.useMemo(() => ({
-    login: (userName, password) => {
-     // setUserToken('altaf');
-     // setIsLoading(false);
+    login: async (userName, password) => {
+      // setUserToken('altaf');
+      // setIsLoading(false);
 
-     let userToken;
-     userToken = null;
-     if( userName == 'user' && password == 'pass' ){
-       userToken = 'dgdgdg';
-     }
+      let userToken;
+      userToken = null;
+      if (userName == 'user' && password == 'pass') {
+        try {
+          userToken = 'altafHoshainFirojPevA';
+          await AsyncStorage.setItem('userToken', userToken);
 
-     dispatch({type:'LOGIN',id:userName, token:userToken});
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      dispatch({ type: 'LOGIN', id: userName, token: userToken });
 
 
     },
-    logout: () => {
-    //  setUserToken(null);
-     // setIsLoading(false);
-     dispatch({type:'LOGOUT'});
+    logout: async() => {
+      //  setUserToken(null);
+      // setIsLoading(false);
+      try {
+        await AsyncStorage.removeItem('userToken');
+      } catch (e) {
+        console.log(e);
+      }
+      dispatch({ type: 'LOGOUT' });
     },
     signup: () => {
-     // setUserToken(null);
-     // setIsLoading(false);
+      // setUserToken(null);
+      // setIsLoading(false);
     }
   }));
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async () => {
       //setIsLoading(false);
-      dispatch({type:'RETRIEVE_TOKEN',token:'dgdgdg'});
+      let userToken;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem('userToken');
+      } catch (e) {
+        console.log(e);
+      }
+      dispatch({ type: 'REGISTER', token: userToken });
     }, 1000);
 
   }, []);
