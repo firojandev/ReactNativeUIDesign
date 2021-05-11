@@ -13,9 +13,10 @@ import {
 const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
+            <StatusBar backgroundColor='#009387' barStyle="light-content"/>
 
             <View style={styles.header}>
-                <Text>Header</Text>
+                <Image source={require('../assets/ict_family.jpg')} style={styles.logo} resizeMode="stretch" />
             </View>
 
             <View style={styles.footer}>
