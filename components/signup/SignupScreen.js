@@ -21,8 +21,10 @@ const SignupScreen = ({navigation}) => {
     const [data, setData] = React.useState({
         email: '',
         password: '',
+        confirm_password: '',
         check_textInputChange: false,
-        secureTextEntry: true
+        secureTextEntry: true,
+        confirm_secureTextEntry: true,
     });
 
     const textInputChange = (val) => {
@@ -62,6 +64,29 @@ const SignupScreen = ({navigation}) => {
         setData({
             ...data,
             secureTextEntry: !data.secureTextEntry
+        });
+    }
+
+    const handleConfirmPasswordChange = (val) => {
+        if (val.trim().length >= 8) {
+            setData({
+                ...data,
+                confirm_password: val,
+               confim_secureTextEntry: true
+            });
+        } else {
+            setData({
+                ...data,
+                confirm_password: val,
+                confim_secureTextEntry: false
+            });
+        }
+    }
+
+    const updateConfirmSecureTextEntry = () => {
+        setData({
+            ...data,
+            confrim_secureTextEntry: !data.confrim_secureTextEntry
         });
     }
 
@@ -159,16 +184,16 @@ const SignupScreen = ({navigation}) => {
 
                         <TextInput
                             placeholder="Enter confirm password"
-                            secureTextEntry={data.secureTextEntry ? true : false}
+                            secureTextEntry={data.confirm_secureTextEntry ? true : false}
                             style={styles.textInput}
                             autoCapitalize="none"
-                            onChangeText={(val) => handlePasswordChange(val)}
+                            onChangeText={(val) => handleConfirmPasswordChange(val)}
                         />
                         <TouchableOpacity
-                            onPress={updateSecureTextEntry}
+                            onPress={updateConfirmSecureTextEntry}
                         >
 
-                            {data.secureTextEntry ?
+                            {data.confirm_secureTextEntry ?
                                 <Feather
                                     name="eye-off"
                                     color="grey"
