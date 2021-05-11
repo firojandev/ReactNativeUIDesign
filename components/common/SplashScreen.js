@@ -10,6 +10,8 @@ import {
     Image
 } from 'react-native';
 
+import * as Animatable from 'react-native-animatable';
+
 import LinearGradient from 'react-native-linear-gradient';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -20,10 +22,10 @@ const SplashScreen = ({ navigation }) => {
             <StatusBar backgroundColor='#009387' barStyle="light-content" />
 
             <View style={styles.header}>
-                <Image source={require('../assets/ict_family.jpg')} style={styles.logo} resizeMode="stretch" />
+                <Animatable.Image  animation="bounceIn" source={require('../assets/ict_family.jpg')} style={styles.logo} resizeMode="stretch" />
             </View>
 
-            <View style={styles.footer}>
+            <Animatable.View style={styles.footer} animation="fadeInUpBig">
                 <Text style={styles.title}>Lets getting started</Text>
                 <Text style={styles.text}>Login into your account</Text>
 
@@ -44,7 +46,7 @@ const SplashScreen = ({ navigation }) => {
                 </View>
 
 
-            </View>
+            </Animatable.View>
 
 
 
