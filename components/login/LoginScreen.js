@@ -67,6 +67,10 @@ const LoginScreen = ({ navigation }) => {
         });
     }
 
+    const handleLogin = (userName, password) => {
+        login(userName,password);
+    }
+
 
     return (
         <View style={styles.container}>
@@ -152,7 +156,7 @@ const LoginScreen = ({ navigation }) => {
                     <View style={styles.button}>
                         <TouchableOpacity
                             style={styles.signIn}
-                            onPress={() => login()}>
+                            onPress={() => handleLogin(data.email, data.password)}>
                             <LinearGradient
                                 colors={['#08d4c4', '#01ab9d']}
                                 style={styles.signIn}
