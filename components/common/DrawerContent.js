@@ -6,7 +6,12 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { AuthContext } from '../context';
+
 function DrawerContent(props) {
+
+    const { logout } = React.useContext(AuthContext);
+
     return (
         <View style={styles.topflex}>
 
@@ -99,7 +104,7 @@ function DrawerContent(props) {
                         <MaterialCommunityIcons name="exit-to-app" color={color} size={size} />
                     )}
                     label="Logout"
-                    onPress={() => { }}>
+                    onPress={() => logout()}>
 
                 </DrawerItem>
 

@@ -14,6 +14,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
+import { AuthContext } from '../context';
+
 const LoginScreen = ({ navigation }) => {
 
     const [data, setData] = React.useState({
@@ -22,6 +24,8 @@ const LoginScreen = ({ navigation }) => {
         check_textInputChange: false,
         secureTextEntry: true
     });
+
+    const { login } = React.useContext(AuthContext);
 
     const textInputChange = (val) => {
         if (val.trim().length >= 4) {
@@ -148,7 +152,7 @@ const LoginScreen = ({ navigation }) => {
                     <View style={styles.button}>
                         <TouchableOpacity
                             style={styles.signIn}
-                            onPress={() => Alert.alert('Ok')}>
+                            onPress={() => login()}>
                             <LinearGradient
                                 colors={['#08d4c4', '#01ab9d']}
                                 style={styles.signIn}
